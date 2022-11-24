@@ -20,3 +20,4 @@ editor.addEventListener('input', function () {
   let toLimit = meter.max - nbChars;
   console.log(`${toLimit}/${meter.max}`);
 });
+/* test*/
