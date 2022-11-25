@@ -4,7 +4,7 @@ let meter = document.querySelector('#meter');
 let maxChars = document.querySelector('#maxChars');
 let compteur = document.querySelector('.compteur');
 let confirm = document.querySelector('#confirm');
-let useChars;
+let cpt = 0;
 let save = 200;
 
 
@@ -27,10 +27,17 @@ confirm.addEventListener('click', function () {
 
 
 editor.addEventListener('input', function () {
+
   if(editor.value.length <= meter.max){
     preview.innerHTML = editor.value;
     meter.value = editor.value.length;
     compteur.innerText = `${meter.value} / ${meter.max}`;
+    cpt = preview.innerText.length;                       //calcule caractère hors balise !
+    console.log(cpt);
+    return cpt;
+  }
+  else{
+    preview.innerHTML = "<style> h3{color:red;} </style> <h3> Attention, la limite maximale de caractère à été dépassé ! </h3>";
   }
   
 
